@@ -1,0 +1,41 @@
+Web-based stock portfolio app:
+    Backend: Ruby on Rails, PostgreSQL(sqlite?)
+    Frontend: React + Redux, Recharts(?)
+    API: IEX
+        Token: pk_c0dcd5318c2e4df6a96f5da1d5bac8ba 
+        Account No: b65fe15fb68ac902d9485c3edf3475e3 
+    
+MVP:
+    1. User Auth, Demo Login
+    3. Buy/sell stocks
+    2. User dashboard/portfolio 
+    4. Transaction audit page
+
+Schema:
+    users:
+        id: not null, indexed, primary key
+        username: not null
+        email: not null, indexed, unique
+        funds: 5000 default, not null
+        password_digest: not null
+        session_token: not null, indexed, unique
+        created_at
+        updated_at
+
+        has many transactions
+
+    transactions:
+        id: not null, indexed primary key
+        type: not null, buy/sell
+        user_id: not null, foreign key
+        ticker: 
+        price:
+        quantity:
+        date: 
+
+        has one user 
+
+    
+
+
+    
