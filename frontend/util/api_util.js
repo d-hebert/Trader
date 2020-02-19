@@ -23,6 +23,16 @@ export const logout = () => {
   });
 };
 
-export const performTransaction = () => {
-  
+export const getTransactions = () => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/transactions"
+  })
+}
+
+export const getPortfolio = () => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/users/${currentUser.id}`,
+  })
 }

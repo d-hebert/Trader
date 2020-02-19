@@ -47,3 +47,11 @@ Transaction.create!(
   price: 10,
   quantity: 2
 )
+
+Transaction.create!(
+  user_id: 2,
+  symbol: 'NFLX',
+  transaction_type: 'sell',
+  price: 5,
+  quantity: 1
+)

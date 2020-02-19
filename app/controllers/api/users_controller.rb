@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
   def index
     @users = User.all
+    debugger
     render "api/users/index"
   end
 
@@ -8,10 +9,10 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    if @user 
+    @user = User.find(params[:id])
+    if @user
       render '/api/users/show'
-    else  
+    else
       render json: {
         :status => 403,
         :message => "You are not logged in."

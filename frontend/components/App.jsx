@@ -1,5 +1,7 @@
 import React from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+
+import { AuthRoute } from '../util/route_util';
 
 import Header from './HeaderContainer';
 import LoginForm from './forms/LoginFormContainer';
@@ -12,8 +14,8 @@ const App = () => (
     <Route path="/" component={Header} />
     <Route exact path="/login" component={LoginForm} />
     <Route exact path="/signup" component={SignupForm} />
-    <Route exact path="/portfolio" component={Portfolio} />
-    <Route exact path="/transactions" component={Transactions} />
+    <AuthRoute exact path="/portfolio" component={Portfolio} />
+    <AuthRoute exact path="/transactions" component={Transactions} />
   </div>
 );
 

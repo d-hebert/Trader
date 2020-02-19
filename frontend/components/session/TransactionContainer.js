@@ -1,14 +1,17 @@
 import { connect } from "react-redux";
 
 import Transactions from './Transactions';
+import { getTransactions } from '../../actions/transactions_actions';
 
 const msp = state => {
   return {
+    transactions: state.entities.transactions,
   };
 };
 
 const mdp = dispatch => {
   return {
+    getTransactions: () => dispatch(getTransactions())
   };
 };
 

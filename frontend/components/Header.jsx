@@ -13,7 +13,7 @@ class Header extends React.Component {
   }
 
   NavLinks() {
-    const currentUser = this.props.currentUser
+    const currentUser = window.currentUser
     if (currentUser) {
       return (
         <header>

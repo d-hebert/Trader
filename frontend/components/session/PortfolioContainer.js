@@ -1,14 +1,17 @@
 import { connect } from "react-redux";
 
 import Portfolio from './Portfolio';
+import { getPortfolio } from '../../actions/portfolio_actions';
 
 const msp = state => {
   return {
+    portfolio: state.entities.portfolio,
   };
 };
 
 const mdp = dispatch => {
   return {
+    getPortfolio: () => dispatch(getPortfolio())
   };
 };
 

@@ -49,8 +49,24 @@ class User < ApplicationRecord
     self.transactions.group(:symbol).count
   end
 
+  def portfolio
+    buys = self.transactions.where(transaction_type: 'buy').group(:symbol).sum(:quantity)
+    sells = self.transactions.where(transaction_type: 'sell').group(:symbol).sum(:quantity)
+    sell_symbols = sells.keys
+    result = []
+    buys.each do |k, v|
+      if sell_symbols.include?(k)
+        buys[k] -= sells[k]
+      end
+    end
+  end
+
   def transaction_price_totals
     self.transactions.group(:transaction_type).sum('price * quantity')
+  end
+
+  def transaction_ids
+    self.transactions.ids
   end
 
   def reset_session_token!

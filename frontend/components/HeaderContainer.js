@@ -6,7 +6,6 @@ import Header from './Header';
 
 const msp = (state) => {
   return {
-    currentUser: state.session.currentUser,
   }
 }
 

@@ -1,6 +1,6 @@
 class Api::TransactionsController < ApplicationController
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.where(user_id: current_user.id)
     render "api/transactions/index"
   end
 
@@ -38,6 +38,7 @@ class Api::TransactionsController < ApplicationController
         :status => 402,
         :message => "Insufficient funds."
       }
+    end
   end
 
   private

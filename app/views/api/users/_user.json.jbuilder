@@ -2,6 +2,6 @@ json.extract! user,
   :id, 
   :email, 
   :wallet, 
-  :transactions, 
+  :transaction_ids,
   :count_by_symbol, 
   :transaction_price_totals
