@@ -39,9 +39,18 @@ class User < ApplicationRecord
     self.wallet >= price
   end
 
-  def perform_transaction(price)
-    self.wallet -= price
+  def perform_transaction(price, type)
+    self.wallet -= price if type == 'buy'
+    self.wallet += price if type == 'sell'
     self.save!
+  end
+
+  def count_by_symbol
+    self.transactions.group(:symbol).count
+  end
+
+  def transaction_price_totals
+    self.transactions.group(:transaction_type).sum('price * quantity')
   end
 
   def reset_session_token!

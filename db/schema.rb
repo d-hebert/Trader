@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_040846) do
+ActiveRecord::Schema.define(version: 2020_02_19_044838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "transactions", force: :cascade do |t|
-    t.string "type", null: false
+    t.string "transaction_type", null: false
     t.integer "user_id", null: false
     t.string "symbol", null: false
     t.float "price", null: false

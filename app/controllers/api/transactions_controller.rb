@@ -22,12 +22,13 @@ class Api::TransactionsController < ApplicationController
   def create
     params = transaction_params
     user = current_user
-    total_price = params.quantity * params.price
-    if user.confirm_funds(total_price)
+    total = params.quantity * params.price
+    transaction_type = params.transaction_type
+    if user.confirm_funds(total) || transaction_type == 'sell'
       @transaction = Transaction.new(transaction_params)
       params[user_id] = user.id
       if @transaction.save
-        user.perform_transaction(total_price)
+        user.perform_transaction(total, transaction_type)
         render '/api/transactions/show'
       else  
         render json: @transactions.errors.full_messages, status: 422

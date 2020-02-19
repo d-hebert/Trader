@@ -15,3 +15,35 @@ david = User.create!(
   email: 'd.hebert@live.com',
   password: 'password!'
 )
+
+Transaction.create!(
+  user_id: 2,
+  symbol: 'MSFT',
+  transaction_type: 'buy',
+  price: 10,
+  quantity: 5
+)
+
+Transaction.create!(
+  user_id: 2,
+  symbol: 'MSFT',
+  transaction_type: 'buy',
+  price: 10,
+  quantity: 2
+)
+
+Transaction.create!(
+  user_id: 2,
+  symbol: 'V',
+  transaction_type: 'buy',
+  price: 10,
+  quantity: 4
+)
+
+Transaction.create!(
+  user_id: 2,
+  symbol: 'NFLX',
+  transaction_type: 'buy',
+  price: 10,
+  quantity: 2
+)
