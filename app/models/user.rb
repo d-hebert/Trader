@@ -35,6 +35,15 @@ class User < ApplicationRecord
     self.save!
   end
 
+  def confirm_funds(price)
+    self.wallet >= price
+  end
+
+  def perform_transaction(price)
+    self.wallet -= price
+    self.save!
+  end
+
   def reset_session_token!
     self.session_token = User.generate_session_token
     self.save!
