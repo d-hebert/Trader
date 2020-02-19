@@ -40,7 +40,7 @@ class SessionForm extends React.Component {
 
   render() {
     const { redirect } = this.state;
-    if (redirect) { return <Redirect to ='/'/> }
+    if (redirect) { return <Redirect to ='/portfolio'/> }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

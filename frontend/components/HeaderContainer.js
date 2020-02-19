@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { logout } from '../actions/session_actions';
 
-import MainNav from './MainNav';
+import Header from './Header';
 
 const msp = (state) => {
   return {
@@ -16,4 +16,4 @@ const mdp = (dispatch) => {
   }
 }
 
-export default connect(msp, mdp)(MainNav);
+export default connect(msp, mdp)(Header);
