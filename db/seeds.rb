@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 guest = User.create!(
-  username: 'Guest',
   email: 'guest@gmail.com',
+  password: 'password!'
+)
+
+david = User.create!(
+  email: 'd.hebert@live.com',
   password: 'password!'
 )

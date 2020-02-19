@@ -36,12 +36,12 @@ export const login = (user) => (dispatch) => {
   return API.login(user)
     .then(user => dispatch(receiveCurrentUser(user)))
     .then(() => dispatch(clearErrors()))
-    .fail(response => dispatch(receiveErrors(response.response.JSON)));
+    .fail(response => dispatch(receiveErrors(response.responseJSON)));
 }
 
 export const logout = () => (dispatch) => {
   return API.logout()
-    .then(() => dispatch(logoutCurrentUser))
+    .then(() => dispatch(logoutCurrentUser()))
     .then(() => dispatch(clearErrors()));
 }
 
