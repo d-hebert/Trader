@@ -17,20 +17,18 @@ class Header extends React.Component {
 
   loggedInNav(user) {
     return (
-      <header>
-        <div className="top-left-nav">
+      <header id="header-nav">
+        <div id="blockOptions">
           <h2>{user.email}</h2>
-          <button onClick={this.handleLogout}>Log out</button>
+          <button onClick={this.handleLogout} id="logout-button">Log out</button>
         </div>
-        <div className="top-right-nav">
+        <div id="userOptions">
           <NavLink exact to="/portfolio">Portfolio</NavLink>
           <NavLink exact to="/transactions">Transactions</NavLink>
         </div>
       </header>
     )
   }
-
-  
 
   NavLinks() {
     const currentUser = this.props.currentUser;

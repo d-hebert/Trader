@@ -1,0 +1,234 @@
+body, html {
+    background: white;
+    color: #4e5d67;
+    height: 100%;
+    width: 100%;
+    font-family: 'Rubik', sans-serif;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    min-width: 950px;
+    min-height: 450px;
+}
+
+#root {
+    text-align: center;
+}
+
+#app {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    width: 60%;
+    height: 5%;
+    padding-bottom: 20px;
+}
+
+
+button:focus {
+    outline: 0;
+}
+
+button:hover {
+    transition: all 0.05s ease-in-out;
+    transform: scale(1.02);
+}
+
+button:active {
+    transition: all 0.01s ease-in-out;
+    transform: scale(1.0);
+}
+
+button {
+    text-transform: uppercase;
+}
+
+input[type=submit] {
+    text-transform: uppercase;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+    box-shadow: 0 10px 20px rgba(80, 80, 80, 0.19), 0 6px 6px rgba(90, 90, 90, 0.23);
+    border-radius: 7px;
+    min-height: 400px;
+    min-width: 400px;
+    height: 60%;
+    width: 100%;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.forms > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.forms > form input {
+    width: 100%;
+    height: 25px;
+    margin: 5%;
+    padding-left: 3px;
+    border: 1px solid #4e5d67;
+    border-radius: 5px;
+    font-size: 80%;
+    margin-top: 1%;
+}
+
+.forms > form input[type=date] {
+    text-align: right;
+}
+
+.forms > form input[type=number],
+.forms > form input[type=date] {
+    width: 145px;
+}
+
+.forms > form button {
+    width: 30%;
+    height: 35px;
+    margin: 5%;
+    border: 2px solid #4e5d67;
+    border-radius: 10px;
+    padding-left: 3px;
+    font-size: 80%;
+}
+
+.forms > form label {
+    margin-bottom: 0;
+    font-size: 70%;
+    color: #4e5d67c9;
+}
+
+
+.form-error {
+    color: #e05b64;
+}
+
+#userOptions, #blockOptions {
+    display: flex;
+    align-items: center;
+    font-size: 80%;
+}
+
+#userOptions {
+    position:fixed;
+    right: 0;
+}
+
+#blockOptions {
+    position:fixed;
+    left: 0;
+    padding-bottom: 50px;
+}
+
+#logout-button {
+    margin-left: 10px;
+    background: hsl(204, 14%, 35%);
+    color: white; 
+    height: 30px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 10px; 
+    width: 80px;
+}
+
+#logout-button:hover {
+    transform: none;
+    background: #707d85;
+}
+
+#logout-button:active {
+    transform: none;
+}
+
+#transaction-table{
+    width: 100%;
+    height: 600px;
+    overflow: auto;
+    box-shadow: 0 10px 20px rgba(80, 80, 80, 0.19), 0 6px 6px rgba(90, 90, 90, 0.23);
+    border-radius: 10px; 
+}
+
+table {
+    table-layout: fixed;
+    border-spacing: 0;   
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#col1 {
+    width: 15%;
+}
+
+#col1 {
+    width: 10%;
+}
+
+#col1 {
+    width: 15%;
+}
+
+#col1 {
+    width: 20%;
+}
+
+#col1 {
+    width: 20%;
+}
+
+#col1 {
+    width: 20%;
+}
+
+tbody {
+    overflow-x: auto;
+}
+
+thead tr th {
+    height: 40px;
+    padding-left: 2%;
+}
+
+thead {
+    background: #e05b64;
+    color: white;
+    font-size: 120%;
+    text-align: left;
+}
+
+tbody {
+    border-top: 2px solid lightslategrey;
+    color: #707d85;
+}
+
+tbody td, thead th {
+    overflow-x: auto;
+    line-height: 30px;
+}
+
+tbody td {
+    padding-left: 2%;
+    border-bottom: 1px solid rgb(193, 206, 219);
+    border-right: 1px solid rgb(193, 206, 219);
+}
+
+tbody td:last-child, thead th:last-child {
+    border-right: none;
+}

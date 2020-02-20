@@ -30,34 +30,37 @@ class SessionForm extends React.Component {
 
   handleErrors() {
     if (this.props.errors.length === 0) {
-      return < div className="errors-blank" > {this.props.errors}</div >
+      return < div className="form-error" > {this.props.errors}</div >
     } else {
-      return < div className="errors" > {this.props.errors}</div >
+      return < div className="form-error" > {this.props.errors}</div >
     }
   }
 
   render() {
     if (this.props.loggedIn) { return <Redirect to ='/portfolio'/> }
     return (
-      <div>
+      <div className="forms">
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="email">
+          <h1>{this.props.type}</h1>
+          <br />
+          <label htmlFor="email" />
             <input
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"
             />
-          </label>
-          <label htmlFor="password">
+            <br />
+          <label htmlFor="password" />
             <input
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
             />
-          </label>
+          <br />
           <input type="submit" value={this.props.type}/>
+          <br />
         </form>
         {this.handleErrors()}
       </div>

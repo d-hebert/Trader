@@ -10,7 +10,7 @@ import Transactions from './session/TransactionContainer';
 import Portfolio from './session/PortfolioContainer';
 
 const App = () => (
-  <div>
+  <div id="app">
     <Route path="/" component={Header} />
     <Route exact path="/login" component={LoginForm} />
     <Route exact path="/signup" component={SignupForm} />

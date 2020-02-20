@@ -1,12 +1,11 @@
 import { connect } from "react-redux";
 
-import Portfolio from './Portfolio';
+import TransactionForm from './TransactionForm';
 import { getPortfolio } from '../../actions/portfolio_actions';
-import * as stockAPI from '../../util/stock_api_util';
+import { refreshCurrentUser } from '../../actions/session_actions';
 
 const msp = state => {
   return {
-    portfolio: state.entities.portfolio,
     currentUser: state.session.currentUser
   };
 };
@@ -14,8 +13,8 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     getPortfolio: () => dispatch(getPortfolio()),
-    getPrice: (symbol) => dispatch(stockAPI.getPrice(symbol)),
+    refreshCurrentUser: () => dispatch(refreshCurrentUser())
   };
 };
 
-export default connect(msp, mdp)(Portfolio);
+export default connect(msp, mdp)(TransactionForm);

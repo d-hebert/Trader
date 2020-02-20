@@ -34,6 +34,15 @@ export const clearErrors = () => {
   };
 };
 
+export const refreshCurrentUser = () => (dispatch) => {
+  return API.refreshCurrentUser()
+    .then(user => dispatch(receiveCurrentUser(user)))
+    .then(() => dispatch(clearErrors()))
+    .then(() => dispatch(getPortfolio()))
+    .then(() => dispatch(getTransactions()))
+    .fail(response => dispatch(receiveErrors(response.responseJSON)));
+}
+
 
 export const login = (user) => (dispatch) => {
   return API.login(user)

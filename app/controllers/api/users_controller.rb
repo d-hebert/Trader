@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     if @user
       render '/api/users/show'
     else
@@ -25,7 +25,6 @@ class Api::UsersController < ApplicationController
       login(@user)
       render '/api/users/show'
     else
-      debugger
       render json: @user.errors.full_messages, status: 422
     end
   end

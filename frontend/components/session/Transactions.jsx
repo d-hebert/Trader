@@ -15,11 +15,24 @@ class Transactions extends React.Component {
   }
 
   formatTransactions() {
-    const output = [];
+    const head = [];
+    const body = [];
     if (this.props.transactions.length) {
       const transactions = this.props.transactions;
+      head.push(
+        <thead>
+          <tr>
+            <th id="col1">Date</th>
+            <th id="col2">Symbol</th>
+            <th id="col3">Type</th>
+            <th id="col4">Price</th>
+            <th id="col5">Quantity</th>
+            <th id="col6">Total</th>
+          </tr>
+        </thead>
+      )
       transactions.forEach(entry => {
-        output.push(
+        body.push(
           <tr key={entry.id}>
             <td>{entry.created_at}</td>
             <td>{entry.symbol}</td>
@@ -31,15 +44,14 @@ class Transactions extends React.Component {
         )
       })
     }
-    return output;
+  return [...head, <tbody> {body} </tbody>];
   }
 
   render() {
     const currentUser = this.props.currentUser;
-    debugger
     if (currentUser) {
       return (
-        <div>
+        <div id="transaction-table">
           <h1>Transactions</h1>
           <table id="transaction-list-cont">
             <tbody>

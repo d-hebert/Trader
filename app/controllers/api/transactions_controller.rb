@@ -20,18 +20,17 @@ class Api::TransactionsController < ApplicationController
   end
 
   def create
-    params = transaction_params
+    t_params = transaction_params
     user = current_user
-    total = params.quantity * params.price
-    transaction_type = params.transaction_type
+    total = t_params[:quantity].to_i * t_params[:price].to_i
+    transaction_type = t_params[:transaction_type]
     if user.confirm_funds(total) || transaction_type == 'sell'
       @transaction = Transaction.new(transaction_params)
-      params[user_id] = user.id
       if @transaction.save
         user.perform_transaction(total, transaction_type)
         render '/api/transactions/show'
       else  
-        render json: @transactions.errors.full_messages, status: 422
+        render json: @transaction.errors.full_messages, status: 422
       end
     else
       render json: {
@@ -43,7 +42,7 @@ class Api::TransactionsController < ApplicationController
 
   private
   def transaction_params
-    params.require(:transaction).permit(:symbol, :quantity, :price, :type)
+    params.require(:transaction).permit(:user_id, :symbol, :quantity, :price, :transaction_type)
   end
 
 end

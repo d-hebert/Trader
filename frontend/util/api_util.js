@@ -30,9 +30,24 @@ export const getTransactions = () => {
   })
 }
 
+export const postTransaction = (transaction) => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/transactions",
+    data: { transaction },
+  })
+}
+
 export const getPortfolio = () => {
   return $.ajax({
     method: "GET",
     url: `/api/portfolio`,
   })
+}
+
+export const refreshCurrentUser = () => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/user",
+  });
 }

@@ -1,19 +1,15 @@
 import React from 'react';
 
+import TransactionForm from '../forms/TransactionFormContainer';
+
 class Portfolio extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   portfolio: null,
-    // }
-
+    
   }
 
   componentDidMount() {
-    // if (this.props.currentUser) {
-    //   this.setState({ portfolio: Boolean(this.props.getPortfolio()) }) 
-    // }
     this.props.getPortfolio();
   }
 
@@ -41,6 +37,7 @@ class Portfolio extends React.Component {
     const currentUser = this.props.currentUser;
     if (currentUser) {
       return (
+        <>
         <div>
           <h1>Portfolio</h1>
           <table id="portfolio-list-cont">
@@ -49,6 +46,8 @@ class Portfolio extends React.Component {
             </tbody>
           </table>
         </div>
+        <TransactionForm />
+        </>
       )
     } else { return null }
   }
