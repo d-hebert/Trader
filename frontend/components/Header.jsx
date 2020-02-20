@@ -14,7 +14,7 @@ class Header extends React.Component {
   }
 
   NavLinks() {
-    const currentUser = window.currentUser
+    const currentUser = this.props.currentUser;
     if (currentUser) {
       return (
         <header>
@@ -45,7 +45,6 @@ class Header extends React.Component {
       this.NavLinks()
     )
   }
-  
 }
 
 export default Header;
