@@ -11,7 +11,6 @@ class Portfolio extends React.Component {
     const output = [];
     debugger
     if (this.props.portfolio.portfolio) {
-      debugger
       const portfolio = this.props.portfolio.portfolio;
       const symbols =  Object.keys(portfolio);
       let i = 0

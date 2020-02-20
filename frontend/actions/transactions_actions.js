@@ -1,6 +1,6 @@
 import * as API from "../util/api_util";
 
-export const RECEIVE_TRANSACTIONS = 'RECEIVE_CURRENT_USER';
+export const RECEIVE_TRANSACTIONS = 'RECEIVE_TRANSACTIONS';
 
 export const receiveTransactions = transactions => {
   return {

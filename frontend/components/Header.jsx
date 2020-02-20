@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 class Header extends React.Component {
   constructor (props) {
@@ -10,6 +10,7 @@ class Header extends React.Component {
   handleLogout (e) {
     e.preventDefault();
     this.props.logout();
+    <Redirect exact to='/' />
   }
 
   NavLinks() {
