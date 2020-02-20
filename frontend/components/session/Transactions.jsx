@@ -4,6 +4,13 @@ class Transactions extends React.Component {
   constructor(props) {
     super(props);
 
+
+  }
+
+  componentDidMount() {
+    // if (this.props.currentUser) {
+    //   this.setState({ transactions: Boolean(this.props.getTransactions()) })
+    // }
     this.props.getTransactions();
   }
 
@@ -28,16 +35,20 @@ class Transactions extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Transactions</h1>
-        <table id="transaction-list-cont">
-          <tbody>
-            {this.formatTransactions()}
-          </tbody>
-        </table>
-      </div>
-    )
+    const currentUser = this.props.currentUser;
+    debugger
+    if (currentUser) {
+      return (
+        <div>
+          <h1>Transactions</h1>
+          <table id="transaction-list-cont">
+            <tbody>
+              {this.formatTransactions()}
+            </tbody>
+          </table>
+        </div>
+      )
+    } else { return null }
   }
 
 }

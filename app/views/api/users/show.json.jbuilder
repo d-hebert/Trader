@@ -1,1 +1,1 @@
-json.extract! @user, :portfolio
+json.partial! 'api/users/user', user: @user

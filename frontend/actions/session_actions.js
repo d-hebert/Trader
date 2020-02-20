@@ -1,5 +1,8 @@
 import * as API from "../util/api_util";
 
+import { getPortfolio } from './portfolio_actions';
+import { getTransactions } from './transactions_actions';
+
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
@@ -36,6 +39,8 @@ export const login = (user) => (dispatch) => {
   return API.login(user)
     .then(user => dispatch(receiveCurrentUser(user)))
     .then(() => dispatch(clearErrors()))
+    .then(() => dispatch(getPortfolio()))
+    .then(() => dispatch(getTransactions()))
     .fail(response => dispatch(receiveErrors(response.responseJSON)));
 }
 
@@ -49,5 +54,5 @@ export const signup = (user) => (dispatch) => {
   return API.signup(user)
     .then(user => dispatch(receiveCurrentUser(user)))
     .then(() => dispatch(clearErrors()))
-    .fail(response => dispatch(receiveErrors(response.response.JSON)));
+    .fail(response => dispatch(receiveErrors(response.responseJSON)));
 }

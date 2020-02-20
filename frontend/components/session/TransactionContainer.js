@@ -6,6 +6,7 @@ import { getTransactions } from '../../actions/transactions_actions';
 const msp = state => {
   return {
     transactions: state.entities.transactions,
+    currentUser: state.session.currentUser
   };
 };
 

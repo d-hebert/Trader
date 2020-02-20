@@ -33,6 +33,6 @@ export const getTransactions = () => {
 export const getPortfolio = () => {
   return $.ajax({
     method: "GET",
-    url: `/api/users/${currentUser.id}`,
+    url: `/api/portfolio`,
   })
 }

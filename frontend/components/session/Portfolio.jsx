@@ -4,12 +4,21 @@ class Portfolio extends React.Component {
   constructor(props) {
     super(props);
 
+    // this.state = {
+    //   portfolio: null,
+    // }
+
+  }
+
+  componentDidMount() {
+    // if (this.props.currentUser) {
+    //   this.setState({ portfolio: Boolean(this.props.getPortfolio()) }) 
+    // }
     this.props.getPortfolio();
   }
 
   formatPortfolio() {
     const output = [];
-    debugger
     if (this.props.portfolio.portfolio) {
       const portfolio = this.props.portfolio.portfolio;
       const symbols =  Object.keys(portfolio);
@@ -29,16 +38,19 @@ class Portfolio extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Portfolio</h1>
-        <table id="portfolio-list-cont">
-          <tbody>
-            {this.formatPortfolio()}
-          </tbody>
-        </table>
-      </div>
-    )
+    const currentUser = this.props.currentUser;
+    if (currentUser) {
+      return (
+        <div>
+          <h1>Portfolio</h1>
+          <table id="portfolio-list-cont">
+            <tbody>
+              {this.formatPortfolio()}
+            </tbody>
+          </table>
+        </div>
+      )
+    } else { return null }
   }
 
 }

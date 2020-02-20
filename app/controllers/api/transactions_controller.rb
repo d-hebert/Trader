@@ -14,7 +14,7 @@ class Api::TransactionsController < ApplicationController
     else  
       render json: {
         :status => 403,
-        :message => "Transaction does not exist."
+        :message => "Transaction does not exist"
       }
     end
   end

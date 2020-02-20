@@ -6,6 +6,7 @@ import { getPortfolio } from '../../actions/portfolio_actions';
 const msp = state => {
   return {
     portfolio: state.entities.portfolio,
+    currentUser: state.session.currentUser
   };
 };
 

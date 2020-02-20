@@ -1,7 +1,6 @@
 class Api::UsersController < ApplicationController
   def index
     @users = User.all
-    debugger
     render "api/users/index"
   end
 
@@ -15,7 +14,7 @@ class Api::UsersController < ApplicationController
     else
       render json: {
         :status => 403,
-        :message => "You are not logged in."
+        :error => "You are not logged in"
       }
     end
   end
@@ -25,7 +24,8 @@ class Api::UsersController < ApplicationController
     if @user.save
       login(@user)
       render '/api/users/show'
-    else  
+    else
+      debugger
       render json: @user.errors.full_messages, status: 422
     end
   end

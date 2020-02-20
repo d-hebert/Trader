@@ -7,9 +7,10 @@ class SessionForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      errors: [],
       redirect: false,
     }
+
+    this.props.clearErrors();
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleErrors = this.handleErrors.bind(this);
@@ -19,8 +20,6 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    this.setState({errors:this.props.errors})
-    if (!this.state.errors.length) { this.setState({redirect: true}) }
   }
 
   update(field) {
@@ -30,17 +29,15 @@ class SessionForm extends React.Component {
   }
 
   handleErrors() {
-    const { errors } = this.state;
-    if (errors.length) {
-      return (
-      <div>{errors}</div>
-      )
+    if (this.props.errors.length === 0) {
+      return < div className="errors-blank" > {this.props.errors}</div >
+    } else {
+      return < div className="errors" > {this.props.errors}</div >
     }
   }
 
   render() {
-    const { redirect } = this.state;
-    if (redirect) { return <Redirect to ='/portfolio'/> }
+    if (this.props.loggedIn) { return <Redirect to ='/portfolio'/> }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
